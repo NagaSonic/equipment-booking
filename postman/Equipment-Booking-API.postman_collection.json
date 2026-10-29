@@ -1,0 +1,20 @@
+{
+  "info": {"name":"Equipment Booking API - Phase 1","schema":"https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable":[{"key":"baseUrl","value":"http://localhost:8080"},{"key":"bookingDate","value":"2030-01-15"},{"key":"bookingId","value":"replace-with-returned-uuid"}],
+  "item":[
+    {"name":"Create booking - success","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"url":"{{baseUrl}}/api/v1/bookings","body":{"mode":"raw","raw":"{
+  "instructorName": "Ravi Kumar",
+  "bookingDate": "{{bookingDate}}",
+  "quantity": 3,
+  "purpose": "Java training session"
+}"}}},
+    {"name":"Check availability","request":{"method":"GET","url":"{{baseUrl}}/api/v1/equipment/availability?date={{bookingDate}}"}},
+    {"name":"Get booking by ID","request":{"method":"GET","url":"{{baseUrl}}/api/v1/bookings/{{bookingId}}"}},
+    {"name":"Create booking - insufficient availability (send after reserving 3)","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"url":"{{baseUrl}}/api/v1/bookings","body":{"mode":"raw","raw":"{
+  "instructorName": "Another Instructor",
+  "bookingDate": "{{bookingDate}}",
+  "quantity": 3,
+  "purpose": "Another session"
+}"}}}
+  ]
+}

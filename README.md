@@ -1,0 +1,3 @@
+The **Equipment Booking API** is a Spring Boot–based RESTful application designed to manage equipment reservations and track equipment availability for specific dates.
+The application provides APIs to create bookings, check equipment availability, and retrieve booking details. It enforces a daily booking limit of five laptops and uses database transactions and locking mechanisms to help maintain inventory consistency when multiple booking requests are processed concurrently.
+The project focuses on reliable booking operations, inventory management, data consistency, and maintainable backend design.

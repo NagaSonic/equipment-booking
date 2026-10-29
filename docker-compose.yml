@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: equipment-booking-postgres
+    environment:
+      POSTGRES_DB: equipment_booking
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - equipment_booking_data:/var/lib/postgresql/data
+volumes:
+  equipment_booking_data:
